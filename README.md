@@ -1,16 +1,32 @@
-# React + Vite
+# Smart Issue Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack React + Firebase project for tracking issues, created for internship assignment submission.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **User Authentication:** Login and signup with Firebase Email/Password
+- **Create Issues:** Title, description, priority, status, and assign to email
+- **Similar Issue Detection:** Shows a confirmation if a similar issue already exists
+- **Status Rule:** Prevents Open → Done transition directly
+- **Issue List:** Shows all issues, sorted by newest first
+- **Filters:** Filter issues by Status and Priority
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React + Vite + JavaScript
+- **Backend/Database:** Firebase Firestore
+- **Authentication:** Firebase Auth
+
+---
+
+## Firebase Setup
+
+1. Create Firebase project and Web App
+2. Copy Firebase config into `.env` file
+3. Use environment variables in `firebase.js`:
+
+

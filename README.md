@@ -30,6 +30,6 @@ A full-stack React + Firebase project for tracking issues, created for internshi
 3. Use environment variables in `firebase.js`
 4. Firestore Rules (for production):
 
-:
+
 
 

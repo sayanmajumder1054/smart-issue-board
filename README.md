@@ -27,6 +27,9 @@ A full-stack React + Firebase project for tracking issues, created for internshi
 
 1. Create Firebase project and Web App
 2. Copy Firebase config into `.env` file
-3. Use environment variables in `firebase.js`:
+3. Use environment variables in `firebase.js`
+4. Firestore Rules (for production):
+
+:
 
 

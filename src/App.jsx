@@ -4,7 +4,9 @@ function App() {
   return (
     <div>
       <h2>Smart Issue Board</h2>
-      <Auth />
+      <div className="app-container">
+        <Auth />
+      </div>
     </div>
   );
 }

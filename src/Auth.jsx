@@ -45,35 +45,38 @@ function Auth() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="page-center">
       {user ? (
-        <>
-          <p>Logged in as: {user.email}</p>
-          <div
-            style={{ width: "100%", display: "flex", justifyContent: "center" }}
-          >
-            <CreateIssue />
-          </div>
+        <div className="app-container">
+          <p className="user-text">Logged in as: {user.email}</p>
+
+          <CreateIssue />
           <IssueList />
-          <button onClick={logout}>Logout</button>
-        </>
+
+          <button className="danger-btn" onClick={logout}>
+            Logout
+          </button>
+        </div>
       ) : (
-        <>
-          <h3>Login / Signup</h3>
+        <div className="auth-card">
+          <h2>Smart Issue Board</h2>
+
           <input
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <br />
+
           <input
             placeholder="Password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <br />
+
           <button onClick={login}>Login</button>
-          <button onClick={signUp}>Sign Up</button>
-        </>
+          <button className="secondary-btn" onClick={signUp}>
+            Sign Up
+          </button>
+        </div>
       )}
     </div>
   );

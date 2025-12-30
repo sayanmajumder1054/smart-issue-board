@@ -1,11 +1,12 @@
+/* ===== Global Root ===== */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* ❗ Removed dark default text to avoid input issues */
+  color: #213547;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,58 +14,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
+/* ===== Reset ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== Body ===== */
 body {
   min-height: 100vh;
   font-family: Arial, sans-serif;
@@ -74,23 +31,65 @@ body {
   align-items: center;
 }
 
+/* ===== Links ===== */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* ===== Headings ===== */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  margin-left: 5px;
+}
+
+/* ===== Buttons ===== */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ===== App Container ===== */
 .app-container {
   background: white;
   width: 100%;
-  max-width: 420px;
+  max-width: 700px;
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
+/* ===== Center Page ===== */
 .page-center {
-  /* min-height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: linear-gradient(135deg, #667eea, #764ba2); */
 }
 
+/* ===== Auth Card ===== */
 .auth-card {
   background: white;
   padding: 20px;
@@ -108,12 +107,24 @@ body {
   text-align: center;
 }
 
-.auth-card input {
+/* ===== INPUT FIX (MOST IMPORTANT) ===== */
+.auth-card input,
+.auth-card textarea,
+.auth-card select {
   padding: 9px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
 }
 
+.auth-card input::placeholder,
+.auth-card textarea::placeholder {
+  color: #6b7280;
+}
+
+/* ===== Buttons inside Auth Card ===== */
 .auth-card button {
   padding: 9px;
   border-radius: 6px;
@@ -123,28 +134,21 @@ body {
   cursor: pointer;
 }
 
-.secondary-btn {
-  background: #48bb78;
-}
-
 .auth-card button:hover {
   opacity: 0.9;
 }
 
-/* Logged-in layout */
-.app-container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 700px;
+.secondary-btn {
+  background: #48bb78;
 }
 
+/* ===== Logged-in User Text ===== */
 .user-text {
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* ===== Danger Button ===== */
 .danger-btn {
   background: #e53e3e;
   color: white;
@@ -153,6 +157,19 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
-h2 {
-  margin-left: 5px;
+
+/* ===== Light Mode Support ===== */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
 }

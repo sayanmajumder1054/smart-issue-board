@@ -1,35 +1,32 @@
-# Smart Issue Board
+1. Why did you choose the frontend stack you used?
 
-A full-stack React + Firebase project for tracking issues, created for internship assignment submission.
+I chose React with Vite because React provides a component-based structure that makes the UI easier to manage and reuse. Vite offers fast builds and quick development, which helps in creating modern web applications efficiently. Firebase integrates well with React, making authentication and database handling simpler.
 
----
+2. Explain your Firestore data structure
 
-## Features
+Firestore uses a single collection called issues, where each issue is stored as a document.
 
-- **User Authentication:** Login and signup with Firebase Email/Password
-- **Create Issues:** Title, description, priority, status, and assign to email
-- **Similar Issue Detection:** Shows a confirmation if a similar issue already exists
-- **Status Rule:** Prevents Open → Done transition directly
-- **Issue List:** Shows all issues, sorted by newest first
-- **Filters:** Filter issues by Status and Priority
-
----
-
-## Tech Stack
-
-- **Frontend:** React + Vite + JavaScript
-- **Backend/Database:** Firebase Firestore
-- **Authentication:** Firebase Auth
-
----
-
-## Firebase Setup
-
-1. Create Firebase project and Web App
-2. Copy Firebase config into `.env` file
-3. Use environment variables in `firebase.js`
-4. Firestore Rules (for production):
+issues
+ └─ issueId
+      ├─ title
+      ├─ description
+      ├─ status
+      ├─ priority
+      ├─ createdBy
+      ├─ assignedTo
+      └─ createdAt
 
 
+This structure supports real-time updates and easy filtering by status and priority.
 
+3. Explain how you handled similar issues
 
+Similar logic was handled using reusable React components and shared Firestore queries. Issue creation, listing, and updates are separated into components to keep the code clean and avoid duplication.
+
+4. What was confusing or challenging?
+
+Configuring Firebase with Vite for production and fixing build issues during deployment on Vercel was challenging. Managing real-time updates while maintaining a smooth UI also required careful handling.
+
+5. What would you improve next?
+
+I would improve the UI, add role-based access control, enable comments on issues, and add better validation and testing to make the application more robust.

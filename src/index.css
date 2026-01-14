@@ -103,10 +103,6 @@ button:focus-visible {
   gap: 10px;
 }
 
-.auth-card h2 {
-  text-align: center;
-}
-
 /* ===== INPUT FIX (MOST IMPORTANT) ===== */
 .auth-card input,
 .auth-card textarea,
@@ -172,4 +168,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.head {
+  text-align: center;
 }

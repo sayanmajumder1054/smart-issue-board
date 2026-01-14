@@ -51,42 +51,40 @@ function CreateIssue() {
   };
 
   return (
-    <div style={{ marginTop: "40px" }}>
+    <div
+      style={{
+        marginTop: "40px",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <div
         style={{
           border: "1px solid #ccc",
           padding: "20px",
-          width: "300px",
-          margin: "0 auto",
-        }}
-      ></div>
-      <div
-        style={{
-          border: "1px solid #ccc",
-          padding: "20px",
-          width: "300px",
+          width: "420px",
         }}
       >
-        <h3>Create Issue</h3>
+        <h3 style={{ textAlign: "center" }}>Create Issue</h3>
 
         <input
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px" }}
+          style={{ width: "100%", marginBottom: "10px", padding: "4px" }}
         />
 
         <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px" }}
+          style={{ width: "100%", marginBottom: "10px", padding: "4px" }}
         />
 
         <select
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px" }}
+          style={{ width: "100%", marginBottom: "10px", padding: "4px" }}
         >
           <option>Low</option>
           <option>Medium</option>
@@ -96,7 +94,7 @@ function CreateIssue() {
         <select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px" }}
+          style={{ width: "100%", marginBottom: "10px", padding: "4px" }}
         >
           <option>Open</option>
           <option>In Progress</option>
@@ -107,7 +105,7 @@ function CreateIssue() {
           placeholder="Assigned To (email)"
           value={assignedTo}
           onChange={(e) => setAssignedTo(e.target.value)}
-          style={{ width: "100%", marginBottom: "10px" }}
+          style={{ width: "100%", marginBottom: "10px", padding: "4px" }}
         />
 
         <button onClick={createIssue} style={{ width: "100%" }}>

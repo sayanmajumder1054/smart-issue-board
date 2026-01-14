@@ -42,54 +42,138 @@ function IssueList() {
   });
 
   return (
-    <div style={{ marginTop: "30px" }}>
-      <h3>All Issues</h3>
+    <div
+      style={{
+        marginTop: "40px",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ width: "100%", maxWidth: "520px" }}>
+        <h3 style={{ textAlign: "center", marginBottom: "20px" }}>
+          All Issues
+        </h3>
 
-      <label>Status: </label>
-      <select
-  value={statusFilter}
-  onChange={(e) => setStatusFilter(e.target.value)}
-></select><select onChange={(e) => setStatusFilter(e.target.value)}>
-        <option>All</option>
-        <option>Open</option>
-        <option>In Progress</option>
-        <option>Done</option>
-      </select>
-
-      <label style={{ marginLeft: "10px" }}>Priority: </label>
-      <select onChange={(e) => setPriorityFilter(e.target.value)}>
-        <option>All</option>
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-      </select>
-
-      <ul>
-        {filteredIssues.map((issue) => (
-          <li key={issue.id} style={{ marginBottom: "10px" }}>
-            <strong>{issue.title}</strong>
-            <br />
-            {issue.description}
-            <br />
-            Status:
+        {/* Filters */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginBottom: "20px",
+          }}
+        >
+          <div>
+            <label>Status: </label>
             <select
-              value={issue.status}
-              onChange={(e) => updateStatus(issue, e.target.value)}
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
             >
+              <option>All</option>
               <option>Open</option>
               <option>In Progress</option>
               <option>Done</option>
             </select>
-            {""}| Priority: {issue.priority}
-            <br />
-            Assigned To: {issue.assignedTo || "Not assigned"}
-            <br />
-            Created By: {issue.createdBy}
-          </li>
+          </div>
+
+          <div>
+            <label>Priority: </label>
+            <select
+              value={priorityFilter}
+              onChange={(e) => setPriorityFilter(e.target.value)}
+            >
+              <option>All</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Issues */}
+        {filteredIssues.map((issue) => (
+          <div
+            key={issue.id}
+            style={{
+              border: "1px solid #ddd",
+              borderRadius: "8px",
+              padding: "16px",
+              marginBottom: "14px",
+              background: "#fafafa",
+            }}
+          >
+            {/* Title + Priority */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "8px",
+              }}
+            >
+              <h4 style={{ margin: 0 }}>{issue.title}</h4>
+              <span
+                style={{
+                  fontSize: "12px",
+                  padding: "4px 10px",
+                  borderRadius: "12px",
+                  background:
+                    issue.priority === "High"
+                      ? "#ffd6d6"
+                      : issue.priority === "Medium"
+                      ? "#fff2cc"
+                      : "#e6fffa",
+                }}
+              >
+                {issue.priority}
+              </span>
+            </div>
+
+            {/* Description */}
+            <p style={{ margin: "6px 0", color: "#555" }}>
+              {issue.description}
+            </p>
+
+            {/* Status + Assigned */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                fontSize: "13px",
+                marginTop: "8px",
+              }}
+            >
+              <div>
+                Status:{" "}
+                <select
+                  value={issue.status}
+                  onChange={(e) => updateStatus(issue, e.target.value)}
+                >
+                  <option>Open</option>
+                  <option>In Progress</option>
+                  <option>Done</option>
+                </select>
+              </div>
+
+              <div>Assigned: {issue.assignedTo || "Unassigned"}</div>
+            </div>
+
+            {/* Created by */}
+            <div
+              style={{
+                fontSize: "12px",
+                color: "#888",
+                marginTop: "6px",
+              }}
+            >
+              Created by: {issue.createdBy}
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
+
 }
 
 export default IssueList;
